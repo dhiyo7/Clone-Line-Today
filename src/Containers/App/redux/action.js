@@ -20,12 +20,12 @@ export const fetchDataFailure = (error) => {
     }
 }
 
-const getUrl = 'https://today.line.me/id/portaljson'
+const getUrl = process.env.REACT_APP_URL
 console.log(getUrl);
 
 export const fetchData = () =>{
     return async function(dispatch) {
-        axios.get(getUrl)
+        axios.get(`${process.env.REACT_APP_URL}/portaljson`)
             .then( (response) => {
                 const dataCategory = response.data.result.categories
                 const dataTab = response.data.result.categoryList
