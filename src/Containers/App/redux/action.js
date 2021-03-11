@@ -21,7 +21,7 @@ export const fetchDataFailure = (error) => {
 }
 export const fetchData = () =>{
     return async function(dispatch) {
-        axios.get('https://today.line.me/id/portaljson')
+        axios.get('https://cors-anywhere.herokuapp.com/https://today.line.me/id/portaljson')
             .then( (response) => {
                 const dataCategory = response.data.result.categories
                 const dataTab = response.data.result.categoryList
