@@ -2,6 +2,7 @@
   "name": "line-today",
   "version": "0.1.0",
   "private": true,
+  "proxy":"https://today.line.me/id",
   "dependencies": {
     "@craco/craco": "^6.1.1",
     "@testing-library/jest-dom": "^4.2.4",

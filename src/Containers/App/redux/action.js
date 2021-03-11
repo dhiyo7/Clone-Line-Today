@@ -19,9 +19,13 @@ export const fetchDataFailure = (error) => {
         error: error
     }
 }
+
+const getUrl = process.env.REACT_API_URL
+console.log(getUrl);
+
 export const fetchData = () =>{
     return async function(dispatch) {
-        axios.get('https://cors-anywhere.herokuapp.com/https://today.line.me/id/portaljson')
+        axios.get('/portaljson')
             .then( (response) => {
                 const dataCategory = response.data.result.categories
                 const dataTab = response.data.result.categoryList
