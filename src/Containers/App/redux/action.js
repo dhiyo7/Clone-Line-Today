@@ -1,28 +1,27 @@
 import {
-    FETCH_DATA_REQUEST,
-    FETCH_DATA_SUCCESS,
-    FETCH_DATA_FAILURE
+    GET_DATA_WAITING,
+    GET_DATA_SUCCESS,
+    GET_DATA_FAILED
 } from "./constants"
 
 import axios from "axios"
 
 export const fetchDataSuccess = (payload) =>{
     return {
-        type:FETCH_DATA_SUCCESS,
+        type:GET_DATA_SUCCESS,
         payload : payload
     }
 }
 
 export const fetchDataFailure = (error) => {
     return {
-        type:FETCH_DATA_FAILURE,
+        type:GET_DATA_FAILED,
         error: error
     }
 }
-
 export const fetchData = () =>{
     return async function(dispatch) {
-        axios.get("/portaljson")
+        axios.get('https://today.line.me/id/portaljson')
             .then( (response) => {
                 const dataCategory = response.data.result.categories
                 const dataTab = response.data.result.categoryList

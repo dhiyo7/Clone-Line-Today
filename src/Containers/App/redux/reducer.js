@@ -1,7 +1,7 @@
 import { 
-    FETCH_DATA_REQUEST,
-    FETCH_DATA_SUCCESS,
-    FETCH_DATA_FAILURE,
+    GET_DATA_WAITING,
+    GET_DATA_SUCCESS,
+    GET_DATA_FAILED,
   } from "./constants";
   
 const initialState = { 
@@ -14,12 +14,12 @@ error: ""
 
 const appReducer = (state = initialState, action) => {
     switch (action.type) {
-        case FETCH_DATA_REQUEST:
+        case GET_DATA_WAITING:
           return {
             ...state,
             loading: true,
           };
-        case FETCH_DATA_SUCCESS:
+        case GET_DATA_SUCCESS:
             return {
                 ...state,
                 loading: false,
@@ -27,7 +27,7 @@ const appReducer = (state = initialState, action) => {
                 categoryTab: action.payload.categoryTab
             }
 
-        case FETCH_DATA_FAILURE:
+        case GET_DATA_FAILED:
             return {
                 ...state,
                 loading: false,
